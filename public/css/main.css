@@ -946,7 +946,7 @@ input[type="submit"] {
 .grid--area .grid-item .grid-inner .grid-thumb .offer-tag,
 .grid--area .grid-item .grid-inner .grid-thumb .offer-remainder,
 .checkout-widget .payment-option,
-.checkout-widget .payment-option li a,
+.checkout-widget .payment-option li button,
 .checkout-widget.checkout-card .payment-card-form,
 .checkout-widget.checkout-card .payment-card-form .form-group.check-group,
 .checkout-contact-form,
@@ -5441,7 +5441,7 @@ input[type="submit"] {
   padding: 15px;
 }
 
-.checkout-widget .payment-option li a {
+.checkout-widget .payment-option li button {
   width: 90px;
   border-radius: 10px;
   border: 1px solid #11326f;
@@ -5451,15 +5451,16 @@ input[type="submit"] {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  background: transparent;
 }
 
-.checkout-widget .payment-option li a img {
+.checkout-widget .payment-option li button img {
   max-width: 100%;
   margin-top: auto;
   margin-bottom: 10px;
 }
 
-.checkout-widget .payment-option li a span {
+.checkout-widget .payment-option li button span {
   font-size: 12px;
   text-transform: capitalize;
   display: block;
