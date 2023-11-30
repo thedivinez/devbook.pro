@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { movies } from "../lib/data";
 import { useSearchParams } from "react-router-dom";
+import { movies, paymentMethods } from "../lib/data";
 
 const CheckOut = () => {
-  const [time, setTime] = useState("09:40");
-  const [saveCard, setSaveCard] = useState(true);
-  const [method, setMethod] = useState("card");
   const [queryParameters] = useSearchParams();
-  const movie = movies.findLast(
-    (movie) => movie.id === queryParameters.get("m")
-  )!;
+  const [method, setMethod] = useState(paymentMethods[0]);
+  const movie = movies.find((movie) => movie.id === queryParameters.get("m"));
 
   const getDate = () => {
     var currentDate = new Date();
@@ -46,13 +42,7 @@ const CheckOut = () => {
             </div>
             <div className="item date-item">
               <span className="date">Session Start</span>
-              <select
-                className="select-bar"
-                onChange={(e) => {
-                  console.log("================");
-                  setTime(e.target.value);
-                }}
-              >
+              <select className="select-bar">
                 <option value="09:40">09:40</option>
                 <option value="13:45">13:45</option>
                 <option value="15:45">15:45</option>
@@ -85,73 +75,30 @@ const CheckOut = () => {
                   <div className="form-group">
                     <input type="text" placeholder="Email" />
                   </div>
+                  {movie.id === "custom" && (
+                    <div className="form-group">
+                      <input type="text" placeholder="Movie Title" />
+                    </div>
+                  )}
                 </form>
               </div>
               <div className="checkout-widget checkout-card mb-0">
                 <h5 className="title">Payment Option</h5>
                 <ul className="payment-option">
-                  <li className={method === "card" ? "active" : ""}>
-                    <button onClick={(_) => setMethod("card")}>
-                      <img src="/images/payment/card.png" alt="payment" />
-                      <span>Credit Card</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className={method === "crypto" ? "active" : ""}
-                      onClick={(_) => setMethod("crypto")}
+                  {paymentMethods.map((method) => (
+                    <li
+                      className={method.id === "card" ? "active" : ""}
+                      key={method.id}
                     >
-                      <img src="/images/payment/paypal.png" alt="payment" />
-                      <span>crypto</span>
-                    </button>
-                  </li>
+                      <button onClick={(_) => setMethod(method)}>
+                        <img src={method.icon} alt="payment" />
+                        <span>{method.title}</span>
+                      </button>
+                    </li>
+                  ))}
                 </ul>
-                <h6 className="subtitle">Enter Your Card Details</h6>
-                <form className="payment-card-form">
-                  <div className="form-group w-100">
-                    <label htmlFor="card1">Card Number</label>
-                    <input type="text" id="card1" />
-                    <div className="right-icon">
-                      <i className="flaticon-lock"></i>
-                    </div>
-                  </div>
-                  <div className="form-group w-100">
-                    <label htmlFor="card2"> Name Card</label>
-                    <input type="text" id="card2" />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="card3">Expiration</label>
-                    <input type="text" id="card3" placeholder="MM/YY" />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="card4">CVV</label>
-                    <input type="text" id="card4" placeholder="CVV" />
-                  </div>
-                  <div className="form-group check-group">
-                    <input
-                      id="card5"
-                      type="checkbox"
-                      checked={saveCard}
-                      onChange={() => {
-                        setSaveCard(!saveCard);
-                      }}
-                    />
-                    <label htmlFor="card5">
-                      <span className="title">QuickPay</span>
-                      <span className="info">
-                        Save this card information to my Devbook account and
-                        make faster payments.
-                      </span>
-                    </label>
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="submit"
-                      className="custom-button"
-                      value="make payment"
-                    />
-                  </div>
-                </form>
+                <h6 className="subtitle">{method.title}</h6>
+                <method.content />
               </div>
             </div>
             <div className="col-lg-4">
@@ -165,7 +112,7 @@ const CheckOut = () => {
                     </h6>
                     <div className="info">
                       <span>Date</span>
-                      <span>{`${getDate()} ${time}`}</span>
+                      <span>{getDate()}</span>
                     </div>
                   </li>
 

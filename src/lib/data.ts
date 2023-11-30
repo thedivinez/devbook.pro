@@ -1,4 +1,6 @@
 import { Movie } from "../types/types";
+import CardPayments from "../components/cardpayment";
+import CryptoPayments from "../components/cryptopayments";
 
 const movies: Movie[] = [
     {
@@ -108,7 +110,48 @@ const movies: Movie[] = [
         id: "the-most-wanted",
         title: "The Most Wanted",
         image: "/images/movie/movie12.jpg",
-    }
+    },
+    {
+        id: "custom",
+        cake: "70%",
+        price: 130,
+        tomato: "80%",
+        duration: "1 Hour",
+        title: "Your Own Movie",
+        image: "/images/movie/movie01.jpg",
+    },
 ]
 
-export { movies };
+const paymentMethods = [
+    {
+        id: "card",
+        title: "Credit Card",
+        icon: "/images/payment/card.png",
+        heading: "Enter Your Card Details",
+        content: CardPayments,
+    },
+    {
+        id: "crypto",
+        title: "Crypto",
+        content: CryptoPayments,
+        icon: "/images/payment/card.png",
+        heading: "Click the buton below to make a crypto payment",
+    },
+];
+
+const navItems = [
+    {
+        link: "/",
+        title: "Home",
+    },
+    {
+        title: "About Us",
+        link: "/about-us",
+    },
+    {
+        link: "/contact",
+        title: "Contact Us",
+    },
+];
+
+export { movies, paymentMethods, navItems };

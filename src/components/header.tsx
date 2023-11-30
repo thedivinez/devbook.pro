@@ -1,4 +1,8 @@
+import { navItems } from "../lib/data";
+import { useLocation } from "react-router-dom";
+
 const Header = () => {
+  const location = useLocation();
   return (
     <header className="header-section">
       <div className="container">
@@ -9,17 +13,16 @@ const Header = () => {
             </a>
           </div>
           <ul className="menu">
-            <li className="mx-4">
-              <a href="/" className="active">
-                Home
-              </a>
-            </li>
-            <li className="mx-4">
-              <a href="/about-us">About Us</a>
-            </li>
-            <li className="mx-4">
-              <a href="/contact">Contact Us</a>
-            </li>
+            {navItems.map((item) => (
+              <li className="mx-4">
+                <a
+                  href={item.link}
+                  className={location.pathname === item.link && "active"}
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
           </ul>
           <div className="header-bar d-lg-none">
             <span></span>
