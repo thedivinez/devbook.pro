@@ -34,13 +34,6 @@ const About = () => {
                   casting decisions, and provide you with advice on how to
                   improve your production values.
                 </p>
-                <div>
-                  <img
-                    src="/images/event/icon/event-icon02.png"
-                    alt="location"
-                  />
-                  <span className="mx-1">15 St Peters Rd Southernwood</span>
-                </div>
               </div>
             </div>
           </div>
