@@ -20,7 +20,7 @@ const Banner = () => {
             help you create the best possible movies, and we’re committed to
             providing you with the support and guidance you need to achieve
             that. We have listed some movies below however if you have your own
-            movie that you nned us to aasist you on, you are free to bring it!
+            movie that you need us to aasist you on, you are free to bring it!
           </small>
           <a href="/checkout?m=custom" className="mt-20 custom-button">
             Request Your Own Movie

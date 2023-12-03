@@ -104,13 +104,13 @@ const Contact = () => {
                     <div className="info-item">
                       <div className="info-thumb">
                         <img
-                          src="/images/contact/contact01.png"
+                          src="/images/event/icon/event-icon02.png"
                           alt="contact"
                         />
                       </div>
                       <div className="info-content">
-                        <h6 className="title">phone number</h6>
-                        <a href="tel:2723456789">+27 234 567 89</a>
+                        <h6 className="title">Office Address</h6>
+                        <a href="/contact#">15 St Peters Rd Southernwood</a>
                       </div>
                     </div>
                     <div className="info-item">

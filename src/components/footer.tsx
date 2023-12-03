@@ -39,11 +39,6 @@ const footer = () => {
             </li>
             <li>
               <a href="#0">
-                <i className="fab fa-pinterest-p"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
                 <i className="fab fa-google"></i>
               </a>
             </li>
@@ -64,19 +59,10 @@ const footer = () => {
             </div>
             <ul className="links">
               <li>
-                <a href="#0">About</a>
+                <a href="/about-us">About</a>
               </li>
               <li>
-                <a href="#0">Terms Of Use</a>
-              </li>
-              <li>
-                <a href="#0">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#0">FAQ</a>
-              </li>
-              <li>
-                <a href="#0">Feedback</a>
+                <a href="/contact">Feedback</a>
               </li>
             </ul>
           </div>
